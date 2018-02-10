@@ -1,0 +1,73 @@
+/*
+ Theme Name:   Kareless Original Storefront Child Theme
+ Theme URI:    http://karelessoriginal.com
+ Description:  Child theme of storefront for KarelessOriginal.com
+ Author:       Eric Binnion
+ Author URI:   http://manofhustle.com
+ Template:     storefront
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  kareless-storefront
+*/
+
+#masthead {
+	padding: 0;
+}
+
+.site-logo-link {
+	margin-top: 1.618em;
+}
+
+.hentry.type-post .entry-content{
+	width: 100% !important;
+}
+
+.kareless-homepage-slider {
+	margin-bottom: 2.326em;
+	padding-bottom: 4.236em;
+}
+
+.hentry .entry-header {
+	border: none !important; 
+	margin-bottom: 2em;
+}
+
+#colophon .site-info {
+	padding: 0;
+}
+
+// #kareless-about-promo {
+// 	background: url( ./assets/images/about.jpg ) no-repeat center center;
+// 	background-size: cover;
+// }
+
+// #post-881 {
+// 	background: url( ./assets/images/about.jpg ) no-repeat center center;
+// 	background-size: cover;
+// 	color: #fff;
+// 	padding: 2em;
+// }
+
+// #post-881 .entry-content {
+// 	background: rgba( 0, 0, 0, 0.8 );
+// 	padding: 2em;
+// }
+
+// #post-881 .entry-header .entry-title {
+// 	color: #fff;
+// 	border-bottom: none;
+// 	margin-bottom: 0;
+// 	padding-bottom: 0;
+// 	text-align: center;
+// }
+
+/* Homepage overrides */
+.home .storefront-product-section:last-child, .home .site-main {
+	margin-bottom: 0;
+}
+
+/* Checkout overrides */
+#payment .payment_methods li .payment_box fieldset {
+	font-size: 1em !important;
+}
