@@ -16,6 +16,7 @@ function kareless_init() {
 	remove_action( 'storefront_footer', 'storefront_credit', 20 );
 	remove_action( 'storefront_before_content', 'storefront_header_widget_region', 10 );
 	remove_action( 'storefront_header', 'storefront_secondary_navigation',         30 );
+	remove_action( 'storefront_header', 'storefront_product_search',               40 );
 
 	remove_all_actions( 'homepage' );
 
