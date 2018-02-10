@@ -1,0 +1,35 @@
+/*
+ Theme Name:   Kareless Original Storefront Child Theme
+ Theme URI:    http://karelessoriginal.com
+ Description:  Child theme of storefront for KarelessOriginal.com
+ Author:       Eric Binnion
+ Author URI:   http://manofhustle.com
+ Template:     storefront
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  kareless-storefront
+*/
+
+/**
+ * Header styles
+ */
+
+.site-header .site-branding .custom-logo-link {
+	width: 100%;
+	padding-top: 34.2%; /* 84:29 aspect ratio */
+	position: relative;
+}
+
+.site-header .site-branding .custom-logo-link img {
+	position: absolute;
+		top: 0;
+		left: 0;
+}
+
+/**
+ * Home page styles
+ */
+.home #main {
+	padding-top: 0;
+}
