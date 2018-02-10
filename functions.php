@@ -29,13 +29,6 @@ function kareless_init() {
 	add_action( 'wp_enqueue_scripts', 'kareless_remove_sticky_footer', 99 );
 }
 
-function kareless_child_scripts() {
-	wp_enqueue_style( 'kareless-child', get_stylesheet_directory_uri() . '/style.css', array( 'storefront-style' ) );
-	wp_dequeue_style( 'storefront-child-style-css' );
-}
-// add_action( 'wp_enqueue_scripts', 'kareless_child_scripts', 101 );
-
-
 function kareless_credit() {
 ?>
 	<div class="site-info">
