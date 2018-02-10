@@ -17,6 +17,7 @@ function kareless_init() {
 	remove_action( 'storefront_before_content', 'storefront_header_widget_region', 10 );
 	remove_action( 'storefront_header', 'storefront_secondary_navigation',         30 );
 	remove_action( 'storefront_header', 'storefront_product_search',               40 );
+	remove_action( 'storefront_header', 'storefront_header_cart',                  60 );
 
 	remove_all_actions( 'homepage' );
 
@@ -116,10 +117,6 @@ function kareless_filter_aff_tabs( $url, $page_id, $tab ) {
 	return esc_url_raw( add_query_arg( 'tab', $tab ) );
 }
 add_filter( 'affwp_affiliate_area_page_url', 'kareless_filter_aff_tabs', 10, 3 );
-
-function storefront_header_cart() {
-	kareless_header_cart();
-}
 
 function kareless_header_cart() {
 	if ( storefront_is_woocommerce_activated() ) {
