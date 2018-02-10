@@ -27,6 +27,10 @@
 		left: 0;
 }
 
+#masthead {
+	padding-top: 1em;
+}
+
 /**
  * Home page styles
  */
