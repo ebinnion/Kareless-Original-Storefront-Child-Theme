@@ -9,6 +9,12 @@ function kareless_full_width( $classes ) {
 	return $classes;
 }
 
+add_action( 'after_setup_theme', 'kareless_after_theme_setup', 11 );
+function kareless_after_theme_setup() {
+	remove_theme_support( 'custom-logo' );
+	remove_theme_support( 'site-logo' );
+}
+
 add_action( 'init', 'kareless_init', 11 );
 function kareless_init() {
 	// Remove Storefront actions.
