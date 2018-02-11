@@ -15,6 +15,7 @@ function kareless_init() {
 	remove_action( 'storefront_loop_post', 'storefront_post_meta', 20 );
 	remove_action( 'storefront_footer', 'storefront_credit', 20 );
 	remove_action( 'storefront_before_content', 'storefront_header_widget_region', 10 );
+	remove_action( 'storefront_header', 'storefront_site_branding',                20 );
 	remove_action( 'storefront_header', 'storefront_secondary_navigation',         30 );
 	remove_action( 'storefront_header', 'storefront_product_search',               40 );
 	remove_action( 'storefront_header', 'storefront_header_cart',                  60 );
@@ -23,6 +24,7 @@ function kareless_init() {
 
 	add_action( 'homepage', 'kareless_homepage' );
 	add_action( 'storefront_footer', 'kareless_credit', 20 );
+	add_action( 'storefront_header', 'kareless_site_branding', 20 );
 
 	add_filter( 'storefront_recent_products_args', 'kareless_eight_recent' );
 
@@ -61,6 +63,23 @@ function kareless_eight_recent( $args ) {
 function kareless_remove_sticky_footer() {
 	wp_dequeue_script( 'storefront-sticky-payment' );
 }
+
+function kareless_site_branding() { ?>
+	<div class="site-branding">
+		<a href="<?php echo esc_url( get_home_url() ); ?>" class="custom-logo-link" rel="home" itemprop="url">
+			<img
+				src="<?php echo esc_url(
+					sprintf(
+						'%s/assets/images/kareless_wolf_logo.png',
+						untrailingslashit( get_stylesheet_directory_uri() )
+					)
+				); ?>"
+				alt="Kareless Logo"
+				class="custom-logo"
+			/>
+		</a>
+	</div>
+<?php }
 
 // ------------------
 // 1. Register new endpoint to use for My Account page
