@@ -11,6 +11,7 @@ function kareless_full_width( $classes ) {
 
 add_action( 'init', 'kareless_init', 11 );
 function kareless_init() {
+	// Remove Storefront actions.
 	remove_action( 'storefront_single_post', 'storefront_post_meta', 20 );
 	remove_action( 'storefront_loop_post', 'storefront_post_meta', 20 );
 	remove_action( 'storefront_footer', 'storefront_credit', 20 );
@@ -20,14 +21,15 @@ function kareless_init() {
 	remove_action( 'storefront_header', 'storefront_product_search',               40 );
 	remove_action( 'storefront_header', 'storefront_header_cart',                  60 );
 
+	// Yea, remove all storefront actions on the homepage so we can do our thing.
 	remove_all_actions( 'homepage' );
 
+	// Custom actions for theme output.
 	add_action( 'homepage', 'kareless_homepage' );
 	add_action( 'storefront_footer', 'kareless_credit', 20 );
 	add_action( 'storefront_header', 'kareless_site_branding', 20 );
 
-	add_filter( 'storefront_recent_products_args', 'kareless_eight_recent' );
-
+	// Various other "doing" actions.
 	add_action( 'wp_enqueue_scripts', 'kareless_remove_sticky_footer', 99 );
 }
 
