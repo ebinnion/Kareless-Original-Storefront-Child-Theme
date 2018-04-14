@@ -54,14 +54,14 @@ function remove_storefront_sidebar() {
 	}
 }
 
-function kareless_homepage() { ?>
-	<?php if ( function_exists( 'putRevSlider' ) ) : ?>
-	<div id="kareless-instagram-footer">
-		<?php putRevSlider( 'slider1' ); ?>
-	</div>
-	<?php endif; ?>
+function kareless_require_partial( $partial ) {
+	require sprintf( '%s/includes/partials/%s.php', untrailingslashit( get_stylesheet_directory() ), $partial );
+}
 
-<?php }
+function kareless_homepage() {
+	kareless_require_partial( 'home-rev-slider' );
+	kareless_require_partial( 'home-body' );
+}
 
 function kareless_eight_recent( $args ) {
 	$args['limit'] = 8;
