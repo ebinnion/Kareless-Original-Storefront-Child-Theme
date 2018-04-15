@@ -4,10 +4,8 @@ var sass      = require( 'gulp-sass' );
 var prefix    = require( 'gulp-autoprefixer' );
 var banner    = require( 'gulp-banner' );
 
-var stylesheet = './assets/sass/style.scss';
-
 function doSass() {
-	gulp.src( stylesheet )
+	gulp.src( './assets/sass/style.scss' )
 		.pipe( sass( { outputStyle: 'compressed'} ) )
 		.pipe( prefix( 'last 1 version', '> 1%', 'ie 8', 'ie 7') )
 		.pipe( banner(
@@ -29,5 +27,5 @@ function doSass() {
 
 gulp.task( 'default', doSass );
 gulp.task( 'watch', function() {
-	gulp.watch( stylesheet, doSass );
+	gulp.watch( './assets/sass/**.scss', doSass );
 } );
