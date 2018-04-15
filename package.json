@@ -1,0 +1,27 @@
+{
+  "name": "kareless-original-storefront-child-theme",
+  "version": "1.0.0",
+  "description": "Child theme of storefront for https://kareless.com",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp",
+    "watch": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebinnion/Kareless-Original-Storefront-Child-Theme.git"
+  },
+  "author": "Eric Binnion (@ebinnion)",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/ebinnion/Kareless-Original-Storefront-Child-Theme/issues"
+  },
+  "homepage": "https://github.com/ebinnion/Kareless-Original-Storefront-Child-Theme#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-banner": "^0.1.3",
+    "gulp-sass": "^4.0.1"
+  }
+}
