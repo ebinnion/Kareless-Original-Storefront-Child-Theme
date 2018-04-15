@@ -1,0 +1,11 @@
+@media all and ( min-width: 768px ) {
+	.kareless-eq-wrap {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.kareless-eq-row-item {
+		flex: 1;
+		height: 200px;
+	}
+}

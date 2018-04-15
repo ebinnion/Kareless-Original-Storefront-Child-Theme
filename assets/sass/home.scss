@@ -1,3 +1,14 @@
 .home #main {
 	padding-top: 0;
 }
+
+.home #content .col-full {
+	margin: 0;
+	max-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+.home #main, .home #primary {
+	margin-bottom: 0;
+}
