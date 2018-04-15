@@ -58,8 +58,11 @@ function kareless_require_partial( $partial ) {
 	require sprintf( '%s/includes/partials/%s.php', untrailingslashit( get_stylesheet_directory() ), $partial );
 }
 
+function kareless_image_url( $relative_image ) {
+	return sprintf( '%s/assets/images/%s', untrailingslashit( get_stylesheet_directory_uri() ), $relative_image );
+}
+
 function kareless_homepage() {
-	kareless_require_partial( 'home-rev-slider' );
 	kareless_require_partial( 'home-body' );
 }
 
