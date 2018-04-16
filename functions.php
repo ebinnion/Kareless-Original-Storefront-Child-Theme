@@ -37,6 +37,8 @@ function kareless_init() {
 
 	// Various other "doing" actions.
 	add_action( 'wp_enqueue_scripts', 'kareless_remove_sticky_footer', 99 );
+
+	add_action( 'wp', 'kareless_enqueue_for_front_page' );
 }
 
 function kareless_credit() {
@@ -175,3 +177,17 @@ function ds_checkout_analytics( $order_id ) {
 	<?php
 }
 add_action( 'woocommerce_thankyou', 'ds_checkout_analytics' );
+
+function kareless_enqueue_for_front_page() {
+	if ( is_front_page() || is_home() ) {
+		wp_register_script(
+			'object-fit-images',
+			trailingslashit( get_stylesheet_directory_uri() ) . 'build/js/ofi.js'
+		);
+		wp_enqueue_script(
+			'kareless-child-home',
+			trailingslashit( get_stylesheet_directory_uri() ) . 'build/js/home.js',
+			array( 'jquery', 'object-fit-images' )
+		);
+	}
+}
