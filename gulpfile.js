@@ -5,7 +5,7 @@ var prefix    = require( 'gulp-autoprefixer' );
 var banner    = require( 'gulp-banner' );
 
 function doSass() {
-	gulp.src( './assets/sass/style.scss' )
+	gulp.src( './src/sass/style.scss' )
 		.pipe( sass( { outputStyle: 'compressed'} ) )
 		.pipe( prefix( 'last 1 version', '> 1%', 'ie 8', 'ie 7') )
 		.pipe( banner(
