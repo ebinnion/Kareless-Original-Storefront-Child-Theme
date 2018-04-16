@@ -25,7 +25,22 @@ function doSass() {
 		.pipe( gulp.dest( './' ) );
 }
 
-gulp.task( 'default', doSass );
+function doJs() {
+	var sources = [
+		'./node_modules/object-fit-images/dist/ofi.js',
+		'./src/js/**.js'
+	];
+	sources.forEach( function( source ) {
+		gulp.src( source )
+		.pipe( gulp.dest( './build/js' ) );
+	} );
+}
+
+gulp.task( 'sass', doSass );
+gulp.task( 'js', doJs );
+
+gulp.task( 'default', [ 'sass', 'js' ] );
 gulp.task( 'watch', function() {
-	gulp.watch( './assets/sass/**.scss', doSass );
+	gulp.watch( './src/sass/**.scss', doSass );
+	gulp.watch( './src/js/**.js', doJs );
 } );
