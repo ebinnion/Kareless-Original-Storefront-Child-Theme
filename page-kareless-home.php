@@ -10,7 +10,9 @@ get_header(); ?>
 
 				do_action( 'storefront_page_before' );
 
+				remove_filter( 'the_content', 'wpautop' );
 				the_content();
+				add_filter( 'the_content', 'wpautop' );
 
 				/**
 				 * Functions hooked in to storefront_page_after action
