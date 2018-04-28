@@ -53,15 +53,7 @@
 
 @media all and ( min-width: 288px ) and ( max-width: 768px ), all and ( min-width: 870px ) {
 	.site-header .site-branding .custom-logo-link {
-		width: 100%;
-		padding-top: 34.2%; /* 84:29 aspect ratio */
-		position: relative;
-	}
-
-	.site-header .site-branding .custom-logo-link img {
-		position: absolute;
-			top: 0;
-			left: 0;
+		height: 100%;
 	}
 }
 
