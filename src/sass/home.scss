@@ -40,6 +40,7 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	text-align: center;
 
 	a {
 		background: rgba( 0, 0, 0, 0.8 );
@@ -51,6 +52,16 @@
 		&:hover {
 			background: rgba( 0, 0, 0, 0.95 );
 			font-size: 2em;
+		}
+	}
+}
+
+@media all and ( max-width: 480px ) {
+	.kareless-home-section-content a {
+		font-size: 1.4em;
+
+		&:hover {
+			font-size: 1.6em;
 		}
 	}
 }
