@@ -1,23 +1,34 @@
-.home #main {
-	padding-top: 0;
+$max_image_item_height: 600px;
+
+.home #masthead {
+	margin-bottom: 0;
 }
 
 .home #content .col-full {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	max-width: 100%;
+}
+
+.home #main, .home #primary {
 	margin: 0;
 	max-width: 100%;
 	padding: 0;
 	width: 100%;
 }
 
-.home #main, .home #primary {
-	margin-bottom: 0;
+.home .kareless-eq-wrap,
+.home .kareless-eq-row-item {
+	max-height: $max_image_item_height;
 }
 
-.kareless-image-fill {
+.kareless-image-fill,
+.kareless-image-fill-container img {
 	border-radius: 0;
 	font-family: 'object-fit: cover;';
 	height: 100%;
-	max-height: 600px;
+	max-height: $max_image_item_height;
 	object-fit: cover;
 	width: 100%;
 }

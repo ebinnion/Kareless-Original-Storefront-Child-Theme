@@ -31,7 +31,6 @@ function kareless_init() {
 	remove_all_actions( 'homepage' );
 
 	// Custom actions for theme output.
-	add_action( 'homepage', 'kareless_homepage' );
 	add_action( 'storefront_footer', 'kareless_credit', 20 );
 	add_action( 'storefront_header', 'kareless_site_branding', 20 );
 
@@ -56,17 +55,6 @@ function remove_storefront_sidebar() {
 	}
 }
 
-function kareless_require_partial( $partial ) {
-	require sprintf( '%s/includes/partials/%s.php', untrailingslashit( get_stylesheet_directory() ), $partial );
-}
-
-function kareless_image_url( $relative_image ) {
-	return sprintf( '%s/assets/images/%s', untrailingslashit( get_stylesheet_directory_uri() ), $relative_image );
-}
-
-function kareless_homepage() {
-	kareless_require_partial( 'home-body' );
-}
 
 function kareless_eight_recent( $args ) {
 	$args['limit'] = 8;
@@ -191,3 +179,49 @@ function kareless_enqueue_for_front_page() {
 		);
 	}
 }
+function do_kareless_home_image_row( $atts, $content = null ) {
+	$a = shortcode_atts( array(
+		'class' => '',
+	), $atts );
+
+	ob_start();
+	?>
+		<div class="kareless-eq-wrap <?php echo esc_attr( $a['class'] ); ?>">
+			<?php echo wp_kses_post( do_shortcode( $content ) ); ?>
+		</div>
+	<?php
+
+	return ob_get_clean();
+}
+add_shortcode( 'kareless_image_row', 'do_kareless_home_image_row' );
+
+function do_kareless_home_image_item( $atts, $content = null ) {
+	$a = shortcode_atts( array(
+		'class' => '',
+	), $atts );
+
+	ob_start();
+	?>
+		<div class="kareless-eq-row-item kareless-image-fill-container <?php echo esc_attr( $a['class'] ); ?>">
+			<?php echo wp_kses_post( do_shortcode( $content ) ); ?>
+		</div>
+	<?php
+
+	return ob_get_clean();
+}
+add_shortcode( 'kareless_image_item', 'do_kareless_home_image_item' );
+
+function do_kareless_home_image_content( $atts, $content = null ) {
+	$a = shortcode_atts( array(
+		'class' => '',
+	), $atts );
+	ob_start();
+	?>
+		<div class="kareless-home-section-content <?php echo esc_attr( $a['class'] ); ?>">
+			<?php echo wp_kses_post( do_shortcode( $content ) ); ?>
+		</div>
+	<?php
+
+	return ob_get_clean();
+}
+add_shortcode( 'kareless_image_content', 'do_kareless_home_image_content' );

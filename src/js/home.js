@@ -3,5 +3,7 @@
 // } )( jQuery, objectFitImages );
 
 jQuery( function () {
-	objectFitImages( jQuery( 'img.kareless-image-fill' ) );
+	objectFitImages( jQuery(
+		'.kareless-image-fill-container img'
+	) );
 } );
