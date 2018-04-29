@@ -9,9 +9,14 @@ function kareless_full_width( $classes ) {
 	return $classes;
 }
 
-add_action( 'init', 'kareless_init', 11 );
-function kareless_init() {
+add_action( 'init', 'kareless_theme_init', 11 );
+function kareless_theme_init() {
 	// Remove Storefront actions.
+	remove_action( 'homepage', 'storefront_homepage_content', 10 );
+	remove_action( 'homepage', 'storefront_product_categories', 20 );
+	remove_action( 'homepage', 'storefront_featured_products', 40 );
+	remove_action( 'homepage', 'storefront_popular_products', 50 );
+	remove_action( 'homepage', 'storefront_on_sale_products', 60 );
 	remove_action( 'storefront_single_post', 'storefront_post_meta', 20 );
 	remove_action( 'storefront_loop_post', 'storefront_post_meta', 20 );
 	remove_action( 'storefront_footer', 'storefront_credit', 20 );
@@ -21,12 +26,11 @@ function kareless_init() {
 	remove_action( 'storefront_header', 'storefront_product_search',               40 );
 	remove_action( 'storefront_header', 'storefront_header_cart',                  60 );
 
-	// Yea, remove all storefront actions on the homepage so we can do our thing.
-	remove_all_actions( 'homepage' );
+	add_action( 'storefront_before_content', 'kareless_instagram_header', 10 );
 
 	// Custom actions for theme output.
-	add_action( 'storefront_footer', 'kareless_credit', 20 );
-	add_action( 'storefront_header', 'kareless_site_branding', 20 );
+	add_action( 'storefront_footer', 'kareless_theme_credit', 20 );
+	add_action( 'storefront_header', 'kareless_theme_site_branding', 20 );
 
 	// Script enqueueing.
 	wp_register_script(
@@ -36,10 +40,19 @@ function kareless_init() {
 
 	add_action( 'wp_enqueue_scripts', 'kareless_scripts', 99 );
 	add_action( 'wp', 'kareless_enqueue_for_front_page' );
-
 }
 
-function kareless_credit() {
+function kareless_instagram_header() {
+	if ( ! is_front_page() || ! function_exists( 'putRevSlider' ) ) { return; }
+?>
+	<div id="kareless-instagram-footer">
+		<?php //putRevSlider( 'instagramfooter' ); ?>
+		<?php putRevSlider( 'slider1' ); ?>
+	</div>
+<?php
+}
+
+function kareless_theme_credit() {
 ?>
 	<div class="site-info">
 		<?php echo esc_html( apply_filters( 'storefront_copyright_text', $content = '&copy; ' . get_bloginfo( 'name' ) . ' ' . date( 'Y' ) ) ); ?>
@@ -78,7 +91,7 @@ function kareless_scripts() {
 	}
 }
 
-function kareless_site_branding() { ?>
+function kareless_theme_site_branding() { ?>
 	<div class="site-branding">
 		<a href="<?php echo esc_url( get_home_url() ); ?>" class="custom-logo-link" rel="home" itemprop="url">
 			<?php if ( function_exists( 'the_custom_logo' ) && function_exists( 'has_custom_logo' ) && has_custom_logo() ) : ?>
