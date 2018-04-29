@@ -1,6 +1,6 @@
 <?php
 /* Template Name: Kareless Homepage */
-
+remove_action( 'storefront_content_top', 'woocommerce_breadcrumb', 10 );
 get_header(); ?>
 
 	<div id="primary" class="content-area">
