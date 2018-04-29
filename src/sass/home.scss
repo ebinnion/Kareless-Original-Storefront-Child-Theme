@@ -1,15 +1,16 @@
-.home #masthead {
+.page-template-page-kareless-home #masthead {
 	margin-bottom: 0;
 }
 
-.home #content .col-full {
+.page-template-page-kareless-home #content .col-full {
 	width: 100%;
 	padding: 0;
 	margin: 0;
 	max-width: 100%;
 }
 
-.home #main, .home #primary {
+.page-template-page-kareless-home #main,
+.page-template-page-kareless-home #primary {
 	margin: 0;
 	max-width: 100%;
 	padding: 0;
@@ -66,14 +67,14 @@
 	}
 }
 
-.home .kareless-eq-wrap {
+.page-template-page-kareless-home .kareless-eq-wrap {
 	border-top: 8px solid #fff;
 	&:first-child {
 		border-top: 0;
 	}
 }
 
-.home .kareless-eq-row-item {
+.page-template-page-kareless-home .kareless-eq-row-item {
 	border-left: 8px solid #fff;
 	&:first-child {
 		border-left: 0;
