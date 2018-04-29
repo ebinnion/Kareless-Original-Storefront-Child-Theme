@@ -9,12 +9,6 @@ function kareless_full_width( $classes ) {
 	return $classes;
 }
 
-add_action( 'after_setup_theme', 'kareless_after_theme_setup', 11 );
-function kareless_after_theme_setup() {
-	remove_theme_support( 'custom-logo' );
-	remove_theme_support( 'site-logo' );
-}
-
 add_action( 'init', 'kareless_init', 11 );
 function kareless_init() {
 	// Remove Storefront actions.
@@ -87,16 +81,20 @@ function kareless_scripts() {
 function kareless_site_branding() { ?>
 	<div class="site-branding">
 		<a href="<?php echo esc_url( get_home_url() ); ?>" class="custom-logo-link" rel="home" itemprop="url">
-			<img
-				src="<?php echo esc_url(
-					sprintf(
-						'%s/assets/images/kareless_wolf_logo.png',
-						untrailingslashit( get_stylesheet_directory_uri() )
-					)
-				); ?>"
-				alt="Kareless Logo"
-				class="custom-logo"
-			/>
+			<?php if ( function_exists( 'the_custom_logo' ) && function_exists( 'has_custom_logo' ) && has_custom_logo() ) : ?>
+				<?php the_custom_logo() ; ?>
+			<?php else: ?>
+				<img
+					src="<?php echo esc_url(
+						sprintf(
+							'%s/assets/images/kareless_wolf_logo.png',
+							untrailingslashit( get_stylesheet_directory_uri() )
+						)
+					); ?>"
+					alt="Kareless Logo"
+					class="custom-logo"
+				/>
+			<?php endif; ?>
 		</a>
 	</div>
 <?php }
