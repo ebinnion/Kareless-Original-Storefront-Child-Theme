@@ -43,10 +43,11 @@ function kareless_theme_init() {
 }
 
 function kareless_instagram_header() {
-	if ( ! is_front_page() || ! function_exists( 'putRevSlider' ) ) { return; }
+	if ( ! is_page_template( 'template-homepage.php' ) || ! function_exists( 'putRevSlider' ) ) {
+		return;
+	}
 ?>
 	<div id="kareless-instagram-footer">
-		<?php //putRevSlider( 'instagramfooter' ); ?>
 		<?php putRevSlider( 'slider1' ); ?>
 	</div>
 <?php
