@@ -24,7 +24,6 @@ function kareless_theme_init() {
 	remove_action( 'storefront_header', 'storefront_site_branding',                20 );
 	remove_action( 'storefront_header', 'storefront_secondary_navigation',         30 );
 	remove_action( 'storefront_header', 'storefront_product_search',               40 );
-	remove_action( 'storefront_header', 'storefront_header_cart',                  60 );
 
 	add_action( 'storefront_before_content', 'kareless_instagram_header', 10 );
 
