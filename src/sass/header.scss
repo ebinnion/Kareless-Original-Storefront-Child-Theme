@@ -38,19 +38,6 @@
 	max-width: 210px;
 }
 
-@media all and ( min-width: 920px ) {
-	#masthead .col-full {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	#masthead .col-full .storefront-primary-navigation {
-		align-content: right;
-		display: flex;
-		flex-grow: 1;
-	}
-}
-
 @media all and ( min-width: 288px ) and ( max-width: 768px ), all and ( min-width: 870px ) {
 	.site-header .site-branding .custom-logo-link {
 		height: 100%;
